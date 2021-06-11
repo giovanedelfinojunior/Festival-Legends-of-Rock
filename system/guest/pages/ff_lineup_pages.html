@@ -1,0 +1,41 @@
+<div id='controle'>
+	<u>
+		<br />
+		<font size='30px'>Atrações</font>
+	</u>
+	<div id='conteudo'>
+	<?php
+	$contadora = 0;
+	
+	$sql_sel_bandas = "SELECT nome, url_imagem, descricao FROM bandas";
+	$sql_sel_bandas_resultado = $conexao->query($sql_sel_bandas);
+	
+	while($sql_sel_bandas_dados = $sql_sel_bandas_resultado->fetch_array()){
+		$contadora = $contadora + 1;
+		if($contadora %2 == 0){
+	?>
+		<div class='conteudo'>
+			<img width="150" height="150" src='<?php echo $sql_sel_bandas_dados['url_imagem']; ?>' align='left'>
+			<div class='textoesquerda'>
+				<?php echo $sql_sel_bandas_dados['nome']; ?>
+				<br /><br />
+				<?php echo $sql_sel_bandas_dados['descricao']; ?>
+			</div>
+		</div>
+		<?php
+		}else{
+		?>
+		<div class='conteudo'>
+			<img width="150" height="150" src='<?php echo $sql_sel_bandas_dados['url_imagem']; ?>' align='right'/>						
+			<div class='textodireita'>
+				<?php echo $sql_sel_bandas_dados['nome']; ?>
+				<br /><br />
+				<?php echo $sql_sel_bandas_dados['descricao']; ?>	
+			</div>
+		</div>
+	<?php
+		}
+	}
+	?>
+	</div>
+</div>

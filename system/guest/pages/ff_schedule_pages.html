@@ -1,0 +1,54 @@
+<div id='controle'>
+<?php
+	session_start();
+	$_SESSION['pagina']="";
+	$_SESSION['pagina']['titulo']= "
+		<h1>
+			Programação
+		</h1>";
+	
+	$sql_sel_bandas = "SELECT bandas.nome,
+							datas.*
+					FROM bandas 
+					INNER JOIN datas ON(datas.id = bandas.datas_id) 
+					ORDER BY datas.dia";
+	$sql_sel_bandas_resultado = $conexao->query($sql_sel_bandas);
+	
+	$_SESSION['pagina']['conteudo'] = "";
+	
+?>
+	<u>Programação</u>
+	<div id='conteudo'>
+	<br />
+<?php
+	$contadora = 0;
+	$cont = 0;
+	if($sql_sel_bandas_resultado->num_rows == 0){//se  a consulta resultar em 0 linhas;
+	
+	$_SESSION['pagina']['conteudo'] = "	
+		Problemas com a programação,resolução em andamento!
+	";					
+	}else{
+		while($sql_sel_bandas_dados = $sql_sel_bandas_resultado->fetch_array()){
+			if($contadora != $sql_sel_bandas_dados['dia']){//se o dia for diferente do valor da contadora;
+				$contadora = $sql_sel_bandas_dados['dia'];//contadora recebe o dia;	
+				
+				$_SESSION['pagina']['conteudo'] .= "
+			
+					<br /><br /><h2>Data: ".$sql_sel_bandas_dados['dia']."</h2><br /><br />	
+					".$sql_sel_bandas_dados['descricao']."<br /><br />
+					".$sql_sel_bandas_dados['nome']."<br />
+				
+				";
+				
+			}
+
+		}
+	}
+echo $_SESSION['pagina']['conteudo'];	
+?>
+	</div>
+<?php if($sql_sel_bandas_resultado->num_rows > 0){ ?>
+	<a href='addons/plugins/prgauxiliares/pdf/ff_construtorpdf_pdf.php'><img src='layout/images/imprimir.jpg'></a>
+<?php } ?>
+</div>

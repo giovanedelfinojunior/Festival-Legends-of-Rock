@@ -1,0 +1,60 @@
+			<div id='controle'>
+				<u>
+					<br />
+					Cadastro
+				</u>
+				<div id='conteudo'>
+					<br />
+					<table width='500px' height='450px' border='5px'>
+						<tr><td colspan="2"><h6>Todos os Campos com * são Obrigatórios</h6></td></tr>
+						<form name='frmcadastro' method='post' onsubmit='return validacadastro()' action='index.php?folder=system/guest/client&file=ff_ins_client&ext=php'>		
+							<tr>	
+								<td align='right'>*Nome Completo:</td>
+								<td><input type='text' name='txtnome' value='' placeHolder='Nome Sobrenome' maxlength='45' ></td>
+							</tr>
+							<tr>		
+								<td align='right'>*Data de Nascimento:</td> 
+								<td><input type='text' name='txtdata' placeHolder='DD/MM/AAAA' maxlength='10' ></td>
+							</tr>
+							<tr>			
+								<td align='right'>*Tipo de Documento:</td> 
+								<td>	
+									<select name='seltipodoc' >
+										<option value=''>Escolha</option>
+										<option value='1'>CPF</option>
+										<option value='2'>RG</option>
+										<option value='3'>Passaporte</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td align='right'>*Número do Documento:</td><td><input type='text' name='txtnumerodoc' value='' placeHolder='Ex(CPF):000.000.000-01' maxlength="15" ></td>
+							</tr>
+							<tr>		
+								<td align='right'>*E-mail:</td><td><input type='text' name='txtemail' value='' placeHolder='Ex:Exemplo@Exemplo.com' maxlength="45"></td>
+							</tr>
+							<tr>			
+								<td align='right'>*Telefone:</td><td><input type='text' name='txttelefone' value='' placeHolder='00000000' maxlength="19" ></td>
+							</tr>
+							<tr>	
+								<td align='right'>*Usuário:</td><td><input type='text' name='txtusuario' value='' placeHolder='Nome de Usuário' maxlength="45" ></td>
+							</tr>
+							<tr>			
+								<td align='right'>*Senha:</td><td><input type='password' name='pwdsenha' value='' placeHolder='Senha' ></td>
+							</tr>	
+							<tr>	
+								<td colspan='2'>
+									<center>
+											<button type='submit'>
+												Criar Conta
+											</button>
+											<button type='reset'>
+												Limpar Tudo
+											</button>
+									</center>
+								</td>
+							</tr>
+						<form>
+					</table>
+				</div>
+			</div>

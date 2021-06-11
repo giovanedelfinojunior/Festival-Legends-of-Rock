@@ -1,0 +1,17 @@
+/*
+	autor: Giovane Delfino Junior
+	Data: 17/04/2015
+*/
+
+#cabecalho{
+
+	border-bottom: 1px solid black;
+
+}
+
+table tr th{
+
+	background-color: rgba(0,0,0,0.2);
+
+}
+
